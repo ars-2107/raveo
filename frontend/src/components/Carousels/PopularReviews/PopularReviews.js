@@ -158,7 +158,7 @@ const PopularReviews = ({ movies }) => {
                     </Link>
                     {/* <div className="rating"><FontAwesomeIcon icon={ faStar } /> review.rating</div> */}
                   </div>
-                  <h4>{user?.username}</h4>
+                  {/* <h4>{user?.username}</h4> */}
                   <p className="review">
                     {review.content.length > 200
                       ? review.content.substring(0, 200) + "..."
