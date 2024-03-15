@@ -1,0 +1,98 @@
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+.content-container {
+  margin: 4rem auto;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 30px 30px 30px;
+}
+
+.content-header h2 span {
+  display: inline-flex;
+  width: 5px;
+  height: 30px;
+  background-color: #eed110;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.content-header h2 {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.view-all {
+  padding: 5px 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.content-container .view-all:hover {
+  color: #eed110;
+  background-color: #151515;
+}
+
+@media (max-width: 768px) {
+  .content-header h2 {
+    font-size: 20px;
+  }
+
+  .content-container .view-all {
+    padding: 3px 10px;
+    font-size: 12px; 
+    margin-bottom: 10px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Slider
+--------------------------------------------------------------*/
+
+.slider {
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.slider .image {
+  position: relative;
+  cursor: pointer;
+  width: 70%;
+  margin: 0 auto;
+  transition: filter 0.3s ease;
+}
+
+.slider:hover .image {
+  filter: brightness(70%);
+}
+
+.slider .title {
+  font-size: 1.35em;
+  margin: 0.5rem 0;
+  color: #fff;
+}
+
+.slider:hover .title {
+  color: #eed110;
+  cursor: pointer;
+}
+
+.slider .rating {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.slider:hover .rating {
+  color: #eed110;
+  cursor: pointer;
+}

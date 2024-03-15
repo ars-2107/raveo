@@ -1,0 +1,180 @@
+
+.explore-container {
+  padding: 30px;
+}
+
+.explore-container .pageHeader {
+  padding: 15px;
+  background-color: #151515;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .explore-container .pageHeader {
+    flex-direction: column;
+  }
+}
+
+.explore-container .pageTitle span {
+  display: inline-flex;
+  width: 5px;
+  height: 40px;
+  background-color: #eed110;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .explore-container .pageTitle span {
+    display: none;
+  }
+}
+
+.explore-container .pageTitle {
+  display: flex;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.explore-container .filters {
+  display: flex;
+  align-items: center;
+}
+
+.explore-container .react-select-container {
+  margin-right: 10px;
+  width: 200px;
+}
+
+.explore-container .explore-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .explore-container .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .explore-container .explore-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.explore-container .react-select-container.genresDD {
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  .explore-container .react-select-container.genresDD {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+.explore-container .react-select-container.sortbyDD {
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  .explore-container .react-select-container.sortbyDD {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+.explore-container .react-select__control {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background-color: #212121;
+  border-radius: 20px;
+}
+
+.explore-container .react-select__value-container .react-select__placeholder,
+.explore-container .react-select__value-container .react-select__input-container {
+  color: white;
+  margin: 0 10px;
+}
+
+.explore-container .react-select__single-value {
+  color: white;
+}
+
+.explore-container .react-select__multi-value {
+  background-color: #eed110;
+  border-radius: 10px;
+}
+
+.explore-container .react-select__multi-value__label {
+  color: #151515;
+}
+
+.explore-container .react-select__multi-value__remove {
+  background-color: transparent;
+  color: #151515;
+  cursor: pointer;
+}
+
+.explore-container .react-select__multi-value__remove:hover {
+  color: #fff;
+  background-color: red;
+}
+
+.explore-container .react-select__menu {
+  color: #fff;
+  background-color: #212121;
+  top: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.explore-container .react-select__option--is-focused {
+  color: #151515;
+  background-color: #eed110;
+  font-weight: bold;
+}
+
+.explore-container .movie-item {
+  background-color: #151515;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.explore-container .movie-item:hover {
+  background-color: #212121;
+}
+
+.explore-container .movie-item .poster-container {
+  height: 350px;
+}
+
+.explore-container .movie-item img {
+  width: 90%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.explore-container .movie-item h3 {
+  font-size: 24px;
+  margin: 0;
+  color: #fff;
+}
+
+.explore-container .resultNotFound {
+  font-size: 24px;
+  margin: 0 auto;
+  color: #fff;
+}
+

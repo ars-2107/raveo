@@ -1,0 +1,73 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+import apiConfig from "../../api/apiConfig";
+import Img from "../../images/image.png"
+import "./listresults.css";
+
+const ResultItem = ({ item }) => {
+  const imgUrl = item.poster_path
+    ? apiConfig.w185Image(item.poster_path)
+    : item.profile_path
+    ? apiConfig.w185Image(item.profile_path)
+    : Img;
+
+  function limitText(text, maxLength) {
+    if (text && text.length > maxLength) {
+      return text.substr(0, maxLength) + "...";
+    }
+    return text;
+  }
+
+  const releaseYear = item.release_date
+    ? new Date(item.release_date).getFullYear()
+    : "-";
+
+  return (
+    <Link to={`/${item.media_type}/${item.id}`} className="result-item">
+      <div className="result-item-img">
+        <img
+          src={imgUrl}
+          alt={item.title || item.name}
+        />
+      </div>
+      <div className="result-info">
+        <h2>{item.name || item.title}</h2>
+        <p>{releaseYear}</p>
+        <p>{limitText(item.overview, 50)}</p>
+      </div>
+    </Link>
+  );
+};
+
+const ListResults = ({ results, keyWord }) => {
+  return (
+    <div className="list-results">
+        <>
+          {results.map((result) => (
+            <ResultItem key={result.id} item={result} />
+          ))}
+
+          <Link
+            className="all-results-link"
+            to={`/results?q=${keyWord}`}
+            style={{
+              width: "80%",
+              backgroundColor: "#111",
+              color: "#fff",
+              padding: "10px 16px",
+              border: "none",
+              borderRadius: "10px",
+              fontSize: "16px",
+              display: "block",
+              textAlign: "center",
+            }}
+          >
+            All results
+          </Link>
+        </>
+    </div>
+  );
+};
+
+export default ListResults;

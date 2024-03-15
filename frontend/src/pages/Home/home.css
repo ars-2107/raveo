@@ -1,0 +1,153 @@
+/*--------------------------------------------------------------
+# Hero
+--------------------------------------------------------------*/
+.hero-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  width: 1280px;
+  height: 800px;
+  margin-left: -650px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+}
+
+.hero-background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 830px;
+  background: linear-gradient(to right, #1a1a1a 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(to left, #1a1a1a 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(to top, #1a1a1a 30%, rgba(255, 255, 255, 0) 80%),
+    linear-gradient(to bottom, #1a1a1a 0%, rgba(255, 255, 255, 0) 15%);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding-top: 350px;
+}
+
+.hero-title > h1 {
+    font-weight: 500;
+    text-shadow: 2px 2px 4px #1a1a1a;
+}
+
+.hero-title,z
+.hero-button,
+.hero-subtitle {
+  margin-bottom: 15px;
+}
+
+.hero-button > button,
+.hero-button > button::after {
+  position: relative;
+  width: 380px;
+  height: 70px;
+  font-size: 36px;
+  font-family: 'Bebas Neue';
+  background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  line-height: 70px;
+  box-shadow: 6px 0 0 #00e6f6;
+  outline: transparent;
+}
+
+.hero-button > button::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  content: 'Get Started';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ff013c 5%);
+  text-shadow: -3px -3px 0 #f8f005, 3px 3px 0 #00e6f6;
+  clip-path: var(--slice-0);
+}
+
+.hero-button > button:hover::after {
+  animation: glitch 1s steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+.hero-subtitle {
+  display: inline-flex;
+  margin-top: 20px;
+  color: #789;
+}
+
+.hero-subtitle > span {
+  text-indent: 110%;
+  background-position: 0 0;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 26px;
+  height: 26px;
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}

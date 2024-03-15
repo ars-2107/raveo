@@ -1,0 +1,60 @@
+/* Styling for the container of the media rating component */
+.media-rating-container {
+  text-align: center;
+  margin: 50px;
+}
+
+/* Styling for the heading "Rate this media" */
+.media-rating-heading {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+/* Styling for the form when the user hasn't rated yet */
+.media-rating-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styling for the star rating input */
+.media-rating-form .rating {
+  margin: 10px 0;
+}
+
+/* Styling for the submit button */
+.media-rating-input-button {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #eed110;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 30px;
+  transition: all 0.5s;
+}
+
+.media-rating-input-button:hover {
+  background-color: #eed110;
+  color: #151515;
+}
+
+.media-rating-input-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.MuiRating-root {
+  color: #eed110 !important;
+}
+
+.MuiRating-iconEmpty {
+  color: #eed110 !important;
+}
+
+.media-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

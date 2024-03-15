@@ -1,0 +1,197 @@
+.review-list-container {
+  margin-top: 20px;
+}
+
+.review-list-container .header {
+  font-size: 24px;
+  margin: 30px;
+  color: #fff;
+}
+
+.review-list-item {
+  position: relative;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.review-list-item .review-item-poster img {
+  width: 185px;
+  border-radius: 5px;
+  transition: filter 0.3s ease;;
+}
+
+.review-list-item .review-item-poster img:hover {
+  filter: brightness(70%);
+}
+
+.review-list-item .review-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-list-item .review-item-info .title {
+  position: relative;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.review-list-item .review-item-info .title:hover {
+  color: #eed110;
+}
+
+.review-list-item .review-item-info .date {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.review-list-item .rave, .rant {
+  width: 60px;
+  margin: 10px 0;
+  padding: 0 10px;
+  border-radius: 20px;
+}
+
+.review-list-item .rave {
+  color: #eed110;
+  background-color: #151515;
+  border: 3px solid #eed110;
+}
+
+.review-list-item .rant {
+  color: #ff2400;
+  background-color: #151515;
+  border: 3px solid #ff2400;
+}
+
+.review-list-item .review-item-info .review-title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.review-list-item .review-item-info .review-content {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.review-list-item .review-item-info .review-content span {
+  color: #eed110;
+  cursor: pointer;
+}
+
+.review-list-item .edit {
+  position: absolute;
+  top: 0;
+  right: 70px;
+  background-color: transparent;
+  color: #007bff;
+  padding: 8px 16px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s;
+}
+
+.review-list-item .edit:hover {
+  background-color: #007bff;
+  color: #151515;
+}
+
+.review-list-item .edit:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.review-list-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: #ff2222;
+  padding: 8px 16px;
+  border: 2px solid #ff2222;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s;
+}
+
+.review-list-delete:hover {
+  background-color: #ff2222;
+  color: #151515;
+}
+
+.review-list-delete:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.review-list-loading {
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-list-loading .loading-button {
+  width: 10%;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #eed110;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.review-list-loading .loading-button:hover {
+  background-color: #eed110;
+  color: #151515;
+}
+
+.review-list-loading .loading-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  .review-item-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .review-list-item .review-item-poster img {
+    width: 120px;
+  }
+  .review-list-item .review-item-info .title {
+    font-size: 20px;
+  }
+  .review-list-item .review-item-info .date {
+    font-size: 10px;
+  }
+  .review-list-item .review-item-info .review-content {
+    font-size: 14px;
+  }
+}

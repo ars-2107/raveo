@@ -1,0 +1,142 @@
+.reviews-page {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 50px;
+  color: #fff;
+}
+
+.reviews-page .review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.reviews-page .review {
+  display: flex;
+  background-color: #151515;
+  border: 2px solid #151515;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.reviews-page .review:hover {
+  background-color: #212121;
+  border: 2px solid #eed110;
+}
+
+.reviews-page .review:hover img{
+  filter: brightness(70%);
+}
+
+.reviews-page .review:hover h3{
+  color: #eed110;
+}
+
+.reviews-page .heading {
+  display: flex;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.reviews-page .heading span {
+  display: inline-flex;
+  width: 5px;
+  height: 40px;
+  background-color: #eed110;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.reviews-page .review h2 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.reviews-page .review-info {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 20px;
+  text-align: left;
+  color: #fff;
+}
+
+.reviews-page .review-media img {
+  width: 185px;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.reviews-page .review h3 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.reviews-page .rave, .rant {
+  width: 60px;
+  padding: 0 10px;
+  border-radius: 20px;
+}
+
+.reviews-page .rave {
+  color: #eed110;
+  background-color: #151515;
+  border: 3px solid #eed110;
+}
+
+.reviews-page .rant {
+  color: #ff2400;
+  background-color: #151515;
+  border: 3px solid #ff2400;
+}
+
+.reviews-page .review-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+}
+
+.reviews-page .review p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.reviews-page .view-more {
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.reviews-page .view-more:hover {
+  color: #eed110;
+}
+
+@media screen and (max-width: 768px) {
+  .reviews-page .review {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .reviews-page .review-media img {
+    width: 180px; 
+    max-width: 300px;
+  }
+
+  .reviews-page .review h3 {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,245 @@
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+.popular-reviews .content-container {
+  margin: 5rem auto;
+}
+
+.popular-reviews .content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 30px 20px 30px;
+}
+
+.popular-reviews .content-header h2 span {
+  display: inline-flex;
+  width: 5px;
+  height: 30px;
+  background-color: #eed110;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.popular-reviews .content-header h2 {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.popular-reviews .content-header a {
+  padding: 5px 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .popular-reviews .content-header h2 {
+    font-size: 20px;
+  }
+
+  .popular-reviews .content-header a {
+    padding: 3px 10px;
+    font-size: 12px; 
+    margin-bottom: 10px;
+  }
+}
+
+.popular-reviews .content-header a:hover {
+  color: #eed110;
+  background-color: #151515;
+}
+
+/*--------------------------------------------------------------
+# Review Slider
+--------------------------------------------------------------*/
+.popular-reviews .review-banner {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  padding: 5.2em 0;
+  transition: all 0.6s;
+}
+
+.popular-reviews .backdrop-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.popular-reviews .review-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popular-reviews .review-container .poster {
+  width: 300px;
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+
+.popular-reviews .poster img {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 0.4em;
+}
+
+.popular-reviews .poster:hover {
+  filter: brightness(70%);
+}
+
+.popular-reviews .review-container .review-info {
+  float: left;
+  width: 400px;
+  max-width: 90%;
+  margin-left: 80px;
+}
+
+.popular-reviews .review-info {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1.5em;
+  margin-left: 0px;
+  border-radius: 5.6px;
+}
+
+.popular-reviews .review-info .movie-info {
+  margin-bottom: 0.64em;
+}
+
+.popular-reviews .movie-info .title {
+  display: block;
+  font-size: 1.36em;
+  color: white;
+}
+
+.popular-reviews .movie-info:hover .title{
+  color: #eed110;
+  cursor: pointer;
+}
+
+.popular-reviews .movie-info .rating {
+  display: flex;
+  color: #fff;
+}
+
+.popular-reviews .movie-info .rating .star {
+  color: #eed110;
+  height: 20px;
+  width: 20px;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.popular-reviews .movie-info .rating p {
+  font-size: 16px;
+}
+
+.popular-reviews .movie-info:hover .rating{
+  color: #eed110;
+  cursor: pointer;
+}
+
+.popular-reviews .review-info h4 {
+  display: flex;
+  color: #fff;
+  transition: color 0.3s ease;
+  font-size: 13px; 
+}
+
+.popular-reviews .review-info h4:hover {
+  color: #eed110;
+  text-decoration: underline;
+}
+
+.popular-reviews .review-info a {
+  display: flex;
+  color: #fff;
+  transition: color 0.3s ease;
+  font-size: 13px; 
+}
+
+.popular-reviews .review-info a:hover {
+  color: #eed110;
+  text-decoration: underline;
+}
+
+.popular-reviews .review-info .review {
+  color: #999;
+  font-size: 13px; 
+  line-height: 1.6;
+}
+
+
+@media screen and (max-width: 768px) {
+  .popular-reviews .review-banner {
+    margin-bottom: 0;
+    padding: 2em 0;
+  }
+  
+  .popular-reviews .prev-button {
+    left: 10px !important;
+  }
+
+  .popular-reviews .next-button {
+    right: 10px !important;
+  }
+
+  .popular-reviews .backdrop-image {
+    height: 800px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .popular-reviews .review-container {
+    flex-direction: column;
+  }
+
+  .popular-reviews .review-container .poster {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .popular-reviews .review-container .review-info {
+    margin-top: 20px;
+    margin-left: 0;
+    max-width: 90%;
+  }
+
+  .popular-reviews .movie-info .title {
+    font-size: 20px;
+  }
+
+  .popular-reviews .movie-info .rating {
+    font-size: 14px;
+  }
+
+  .popular-reviews .review-info .review {
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+
+  .popular-reviews .review-info .detail {
+    font-size: 0.8em;
+  }
+
+  .popular-reviews .review-info .read-more {
+    font-size: 0.8em;
+  }
+}

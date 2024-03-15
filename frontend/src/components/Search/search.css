@@ -1,0 +1,30 @@
+.search-bar .search-input {
+  position: relative;
+  margin: 10px;
+}
+
+.search-bar .search-input input[type="text"] {
+  background-color: #232323;
+  height: 50px;
+  border-radius: 23px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 0px 15px 0px 45px;
+}
+
+.search-input .search-icon {
+  position: absolute;
+  color: #666;
+  left: 20px;
+  top: 16px;
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+}
+
+@media (max-width: 992px) {
+  .search-bar .search-input {
+    display: none;
+  }
+}
