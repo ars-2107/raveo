@@ -129,11 +129,6 @@
   color: white;
 }
 
-.popular-reviews .movie-info:hover .title{
-  color: #eed110;
-  cursor: pointer;
-}
-
 .popular-reviews .movie-info .rating {
   display: flex;
   color: #fff;
@@ -163,7 +158,13 @@
   font-size: 13px; 
 }
 
-.popular-reviews .review-info h4:hover {
+.popular-reviews .review-info h4 span {
+  transition: color 0.3s ease;
+  font-size: 13px; 
+  cursor: pointer;
+}
+
+.popular-reviews .review-info h4 span:hover {
   color: #eed110;
   text-decoration: underline;
 }
