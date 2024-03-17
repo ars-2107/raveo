@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 import './reviews.css'
 import apiConfig from '../../api/apiConfig';
@@ -8,10 +7,14 @@ import reviewApi from '../../api/modules/reviewApi';
 
 const Reviews = () => {
   const [reviews, setReviews ] = useState([]);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState({});
 
-  const toggleExpand = () => {
-    setExpanded(!expanded);
+
+  const toggleReviewExpand = (reviewId) => {
+    setExpanded(prevState => ({
+      ...prevState,
+      [reviewId]: !prevState[reviewId]
+    }));
   };
 
   useEffect(() => {
@@ -37,23 +40,31 @@ const Reviews = () => {
       <div className="heading"><span>&nbsp;</span><h2>Top Reviews</h2></div>
       <div className="review-list">
         {reviews.map((review) => (
-          <div key={review._id} className="review">
+          <div key={review.id} className="review">
             <div className="review-media">
+            <Link to={`/${review.mediaType}/${review.mediaId}`}>
               <img src={apiConfig.originalImage(review.mediaPoster)} alt={review.mediaTitle} />
+            </Link>
             </div>
             <div className="review-info">
               <div className="review-header">
                 <h3 className="title">{review.title}</h3>
+                <p className="username">@{review.user?.username || "anonymous"} on "{review.mediaTitle}"</p>
                 <p className={review.reaction === "Rave" ? "rave" : "rant"}>{review.reaction}</p>
               </div>
               <div className="review-content">
-                <p>{expanded ? review.content : limitText(review.content, 500)}</p>
-                <span
-                  onClick={toggleExpand}
-                  className="view-more"
-                >
-                  {expanded ? "\n\nshow less" : "view more"}
-                </span>
+                {expanded[review.id] ?
+                  <p>{review.content}</p> :
+                  <p>{limitText(review.content, 500)}</p>
+                }
+                {review.content.length > 500 && (
+                  <span
+                    onClick={() => toggleReviewExpand(review.id)}
+                    className="view-more"
+                  >
+                    {expanded[review.id] ? "Show less" : "View more"}
+                  </span>
+                )}
               </div>
             </div>
           </div>
