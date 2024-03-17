@@ -132,7 +132,7 @@ const PopularReviews = ({ movies }) => {
       <div className="content-container">
         <div className='content-header'>
           <h2><span>&nbsp;</span>Popular Reviews</h2>
-          <a href='#'>View All</a>
+          <Link to={`/reviews`}>View All</Link>
         </div>
         <Slider {...settings}>
           {reviews.map((review) => (
@@ -154,7 +154,7 @@ const PopularReviews = ({ movies }) => {
                       to={`/${review.mediaType}/${review.mediaId}`}
                       style={{ color: "unset", textDecoration: "none" }}
                     >
-                      <h2 className="title">{review.mediaTitle}</h2> 
+                      <h2 className="title">{review.title} on "{review.mediaTitle}"</h2> 
                     </Link>
                   </div>
                   <h4>@{review.user?.username || "anonymous"}</h4>
@@ -163,11 +163,9 @@ const PopularReviews = ({ movies }) => {
                       ? review.content.substring(0, 200) + "..."
                       : review.content}
                   </p>
-                  {review.content.length > 200 && (
-                    <Link to={`/${review.mediaType}/${review.mediaId}`} style={{ textDecoration: "none" }}>
-                      More Reviews
-                    </Link>
-                  )}
+                  <Link to={`/${review.mediaType}/${review.mediaId}`} style={{ textDecoration: "none" }}>
+                    More Reviews
+                  </Link>
                 </div>
               </div>
             </div>
