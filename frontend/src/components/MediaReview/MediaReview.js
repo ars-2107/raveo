@@ -70,7 +70,7 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
           <UserAvatar text={review.user?.displayName}></UserAvatar>
         </div>
         <div>
-          <h6 className="name">{review.user?.displayName}</h6>
+          <h6 className="name">{review.user?.displayName} <span className="username">@{review.user?.username || "anonymous"}</span></h6>
           <p className="date">
             {moment(review.createdAt).format("DD-MM-YYYY HH:mm:ss")}
           </p>
