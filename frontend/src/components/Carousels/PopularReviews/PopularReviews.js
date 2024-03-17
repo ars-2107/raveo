@@ -150,14 +150,18 @@ const PopularReviews = ({ movies }) => {
                 </Link>
                 <div className="review-info">
                   <div className="movie-info">
+                    <h2 className="title">{review.title}</h2>
+                  </div>
+                  <h4>
+                    <span className='username'>@{review.user?.username || "anonymous"}</span>
+                    &nbsp;on&nbsp;
                     <Link
                       to={`/${review.mediaType}/${review.mediaId}`}
                       style={{ color: "unset", textDecoration: "none" }}
                     >
-                      <h2 className="title">{review.title} on "{review.mediaTitle}"</h2> 
+                      <span className='media-title'>"{review.mediaTitle}"</span>
                     </Link>
-                  </div>
-                  <h4>@{review.user?.username || "anonymous"}</h4>
+                  </h4>
                   <p className="review">
                     {review.content.length > 200
                       ? review.content.substring(0, 200) + "..."
