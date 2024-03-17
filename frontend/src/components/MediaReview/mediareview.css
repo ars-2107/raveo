@@ -50,6 +50,17 @@
   margin-top: 20px;
 }
 
+.media-review-item .user .username {
+  color: #777;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.media-review-item .user .username:hover {
+  color: #eed110;
+  text-decoration: underline;
+}
+
 .media-review-item .user .date {
   color: #777;
   font-size: 14px;
