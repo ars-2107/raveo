@@ -64,7 +64,7 @@ const update = async (req, res) => {
 
 const getAllReviews = async (req, res) => {
   try {
-    const reviews = await reviewModel.find().sort("-createdAt");
+    const reviews = await reviewModel.find().populate("user").sort("-createdAt");
     responseHandler.ok(res, reviews);
   } catch {
     responseHandler.error(res);
