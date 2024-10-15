@@ -1,7 +1,9 @@
 import axios from "axios";
 import queryString from "query-string";
 
-const baseURL = "https://raveo-express-backend.vercel.app/api/v1/";
+const baseURL = process.env.REACT_APP_BASE_URL;
+
+console.log(baseURL);
 
 const publicClient = axios.create({
   baseURL,
