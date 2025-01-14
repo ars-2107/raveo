@@ -22,15 +22,15 @@ const PasswordUpdate = () => {
     },
     validationSchema: Yup.object({
       password: Yup.string()
-        .min(8, "* Password minimum 8 characters")
-        .required("* Password is required"),
+        .min(8, "Password minimum 8 characters")
+        .required("Password is required"),
       newPassword: Yup.string()
-        .min(8, "* New Password minimum 8 characters")
+        .min(8, "New Password minimum 8 characters")
         .required("* New Password is required"),
       confirmNewPassword: Yup.string()
-        .oneOf([Yup.ref("newPassword")], "* Confirm new password not match")
-        .min(8, "* Confirm new password minimum 8 characters")
-        .required("* Confirm new password is required")
+        .oneOf([Yup.ref("newPassword")], "Confirm new password not match")
+        .min(8, "Confirm new password minimum 8 characters")
+        .required("Confirm new password is required")
     }),
     onSubmit: async values => onUpdate(values)
   });
@@ -43,7 +43,7 @@ const PasswordUpdate = () => {
 
     setOnRequest(false);
 
-    if (err) console.log(err);
+    if (err) console.error(err);
     if (response) {
       form.resetForm();
       navigate("/");

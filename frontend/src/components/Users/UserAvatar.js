@@ -5,7 +5,7 @@ const UserAvatar = ({ text }) => {
     let hash = 0;
     let i;
 
-    for (i = 0; i < str.length; i += 1) {
+    for (i = 0; i < str?.length; i += 1) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
 
@@ -23,10 +23,11 @@ const UserAvatar = ({ text }) => {
     <Avatar
       sx={{
         backgroundColor: stringToColor(text),
-        width: 40,
-        height: 40
+        width: 30,
+        height: 30,
+        marginX: 0,
       }}
-      children={`${text.split(" ")[0][0]}`}
+      children={`${text?.split(" ")[0][0]}`}
     />
   );
 };

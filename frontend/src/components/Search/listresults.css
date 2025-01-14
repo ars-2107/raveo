@@ -1,33 +1,28 @@
 .list-results {
-  margin-top: 10px;
   width: 400px;
   max-width: 100%;
   height: 500px;
-  background-color: #fff;
+  background-color: #232323;
   border-radius: 10px;
-  background-color: #151515;
-  padding: 16px;
   overflow-y: scroll;
 }
 
-.list-results .result-container {
-  max-width: 800px;
-  margin-bottom: 20px;
+.list-results::-webkit-scrollbar {
+  display: none;
 }
 
 .list-results .result-item {
   display: flex;
   align-items: flex-start;
   color: #fff;
-  margin-bottom: 20px;
   padding: 30px;
-  border-bottom: 2px solid #fff;
-  text-align: center;
+  border-bottom: 2px solid #666;
   transition: transform 0.3s ease;
 }
 
 .list-results .result-item:hover {
-  background-color: #212121;
+  background-color: #151515;
+  border-color: #eed110;
 }
 
 .list-results .result-item-img img {
@@ -35,32 +30,65 @@
   border-radius: 5px;
 }
 
-.list-results .result-item .result-info {
+.list-results .result-info {
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 }
 
-.list-results .result-item h2 {
-  flex: 1;
-  margin-left: 10px;
+.list-results h2 {
   font-size: 16px;
   font-weight: 600;
 }
 
-.list-results .result-item p {
-  width: 200px;
-  margin-left: 10px;
+.list-results p {
   font-size: 14px;
 }
 
-.list-results .all-results-link {
-  margin: 0 auto;
-  border: 1px solid #fff !important;
-  transition: background-color 0.3s ease;
+.all-results-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
-.list-results .all-results-link:hover {
-  color: #151515 !important;
-  background-color: #eed110 !important;
-  border: 1px solid #eed110 !important;
+.all-results-button {
+  padding: 8px 64px;
+  font-size: 16px;
+  color: white;
+  background-color: #666;
+  border: 2px solid #666;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.all-results-button:hover {
+  background-color: #eed110;
+  color: black;
+  border-color: #eed110;
+}
+
+@media (max-width: 600px) {
+  .list-results {
+    width: 75%;
+    height: 375px;
+    padding: 12px;
+  }
+
+  .list-results .result-item {
+    padding: 20px;
+  }
+
+  .list-results .result-item-img img {
+    width: 60px;
+  }
+
+  .list-results h2 {
+    font-size: 14px;
+  }
+
+  .list-results p {
+    font-size: 12px;
+  }
 }

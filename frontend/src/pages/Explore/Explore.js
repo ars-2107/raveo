@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { apiFetch } from "../../api/apiFetch";
 import useFetch from "../../hooks/useFetch";
-import Loading from "../../components/Loading/Loading"
+import Loading from "../../components/Loading/Loading";
 import Img from "../../images/image.png";
 import "./explore.css";
 import apiConfig from "../../api/apiConfig";
-import apiType from "../../api/apiType";
-
 
 let filters = {};
 
@@ -28,13 +25,13 @@ const Explore = ({ mediaType }) => {
     const [genre, setGenre] = useState(null);
     const [sortby, setSortby] = useState(null);
 
-    const { data: genresData } = useFetch(`genre/${mediaType}/list?api_key=${apiConfig.apiKey}`);
+    const { data: genresData } = useFetch(`/genre/${mediaType}/list?api_key=${apiConfig.apiKey}`);
 
     let url;
     if (mediaType === "all") {
-      url = `trending/movie/week?api_key=${apiConfig.apiKey}`;
+      url = `/trending/movie/week?api_key=${apiConfig.apiKey}`;
     } else {
-      url = `discover/${mediaType}?api_key=${apiConfig.apiKey}`;
+      url = `/discover/${mediaType}?api_key=${apiConfig.apiKey}`;
     }
 
     const fetchInitialData = () => {
@@ -48,17 +45,22 @@ const Explore = ({ mediaType }) => {
 
     const fetchNextPageData = () => {
         apiFetch(
-            `discover/${mediaType}?page=${pageNum}&api_key=${apiConfig.apiKey}`,
+            `/discover/${mediaType}?page=${pageNum}&api_key=${apiConfig.apiKey}`,
             filters
         ).then((res) => {
             if (data?.results) {
+                const existingItemsMap = new Map(data.results.map(item => [item.id, item]));
+
+                const newUniqueResults = res.results.filter(item => !existingItemsMap.has(item.id));
+
                 setData({
                     ...data,
-                    results: [...data?.results, ...res.results],
+                    results: [...data.results, ...newUniqueResults],
                 });
             } else {
                 setData(res);
             }
+
             setPageNum((prev) => prev + 1);
         });
     };
@@ -99,8 +101,8 @@ const Explore = ({ mediaType }) => {
     };
 
     function limitText(text, maxLength) {
-      if (text && text.length > maxLength) {
-        return text.substr(0, maxLength) + "...";
+      if (text && text?.length > maxLength) {
+        return text?.substr(0, maxLength) + "...";
       }
       return text;
     }
@@ -117,7 +119,7 @@ const Explore = ({ mediaType }) => {
                       : "Explore Movies"}
                       </h2>
                     </div>
-                    {mediaType !== "all" && ( // Render filters and sort only if mediaType is not "all"
+                    {mediaType !== "all" && (
                       <div className="filters">
                         <Select
                           isMulti
@@ -131,6 +133,35 @@ const Explore = ({ mediaType }) => {
                           placeholder="Select genres"
                           className="react-select-container genresDD"
                           classNamePrefix="react-select"
+                          styles={{
+                            control: (base) => ({
+                              ...base,
+                              display: "flex",
+                              flexWrap: "nowrap",
+                              overflowX: "auto",
+                              minHeight: "40px",
+                            }),
+                            valueContainer: (base) => ({
+                              ...base,
+                              display: "flex",
+                              flexWrap: "nowrap",
+                              overflowX: "auto",
+                              padding: "0",
+                            }),
+                            multiValue: (base) => ({
+                              ...base,
+                              flex: "0 0 auto",
+                              margin: "2px",
+                            }),
+                            multiValueLabel: (base) => ({
+                              ...base,
+                              whiteSpace: "nowrap",
+                            }),
+                            menu: (base) => ({
+                              ...base,
+                              zIndex: 9999,
+                            })
+                          }}
                         />
                         <Select
                           name="sortby"
@@ -158,7 +189,6 @@ const Explore = ({ mediaType }) => {
                             >
                               <div className="explore-grid">
                                 {data?.results?.map((item, index) => {
-                                  if (item.media_type === "person");
                                   return (
                                     <Link
                                       className="movies-link"
@@ -168,9 +198,9 @@ const Explore = ({ mediaType }) => {
                                       <div key={item.id} className="movie-item">
                                         <div className="poster-container">
                                           {item.poster_path || item.backdrop_path ? (
-                                              <img src={apiConfig.originalImage(item.poster_path || item.backdrop_path)} alt={item.title || item.name} className="poster-img"/>
+                                              <img src={apiConfig.w200Image(item.poster_path || item.backdrop_path)} alt={item.title || item.name} className="poster-img" />
                                           ) : (
-                                              <img src={Img} alt={item.title || item.name} className="poster-img"/>
+                                              <img src={Img} alt={item.title || item.name} className="poster-img" />
                                           )}
                                         </div>
                                         <h3>{limitText(item.title || item.name, 16)}</h3>
@@ -182,9 +212,11 @@ const Explore = ({ mediaType }) => {
                               </div>
                             </InfiniteScroll>
                         ) : (
-                            <span className="resultNotFound">
-                                Sorry, Results not found!
-                            </span>
+                            <div className="notFound-container">
+                              <span className="notFound">
+                                  Sorry, Not found!
+                              </span>
+                            </div>
                         )}
                     </>
                 )}

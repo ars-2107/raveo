@@ -38,7 +38,7 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
     });
 
     if (err) {
-      console.log(err);
+      console.error(err);
     } else if (response) {
       onUpdated(updatedReview)
       setExpanded(true);
@@ -52,15 +52,15 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
     const { response, err } = await reviewApi.remove({ reviewId: review.id });
     setOnRequest(false);
 
-    if (err) console.log(err);
+    if (err) console.error(err);
     if (response) {
       onRemoved(review.id);
     }
   };
 
   function limitText(text, maxLength) {
-    if (text && text.length > maxLength) {
-      return text.substr(0, maxLength) + "...";
+    if (text && text?.length > maxLength) {
+      return text?.substr(0, maxLength) + "...";
     }
     return text;
   }
@@ -72,7 +72,7 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
           to={`/${review.mediaType}/${review.mediaId}`}
           style={{ color: "unset", textDecoration: "none" }}
         >
-          <img className="poster-image" src={apiConfig.originalImage(review.mediaPoster)} alt={review.mediaTitle}/> 
+          <img className="poster-image" src={apiConfig.w500Image(review.mediaPoster)} alt={review.mediaTitle} /> 
         </Link>
       </div>
 
@@ -140,7 +140,7 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
               <p className={review.reaction === "Rave" ? "rave" : "rant"}>{review.reaction}</p>
               <h4 className="review-title">{review.title}</h4>
               <p className="review-content">{expanded ? review.content : limitText(review.content, 500)}
-              {review.content.length > 500 && (
+              {review.content?.length > 500 && (
               <span
                 onClick={toggleExpand}
                 className="view-more"
@@ -187,9 +187,9 @@ const ReviewList = () => {
     const getReviews = async () => {
       const { response, err } = await reviewApi.getList();
 
-      if (err) console.log(err);
+      if (err) console.error(err);
       if (response) {
-        setReviewCount(response.length);
+        setReviewCount(response?.length);
         setReviews([...response]);
         setFilteredReviews([...response].splice(0, skip));
       }
@@ -231,7 +231,7 @@ const ReviewList = () => {
               <ReviewItem review={item} onUpdated={onUpdated} onRemoved={onRemoved} />
             </div>
           ))}
-          {filteredReviews.length < reviews.length && (
+          {filteredReviews?.length < reviews?.length && (
           <div className="review-list-loading">
             <button
               onClick={onLoadMore}

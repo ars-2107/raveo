@@ -3,14 +3,19 @@ import modelOptions from "./model.options.js";
 import crypto from "crypto";
 
 const userSchema = new mongoose.Schema({
-  username: {
+  displayName: {
+    type: String,
+    required: true
+  },
+  email: {
     type: String,
     required: true,
     unique: true
   },
-  displayName: {
+  username: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,

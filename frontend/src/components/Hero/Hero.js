@@ -16,15 +16,15 @@ const Hero = () => {
 
           setBanner(data.results[random]);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
 
     getBanner();
   }, []);
 
   function limitText(text, maxLength) {
-    if (text && text.length > maxLength) {
-      return text.substr(0, maxLength) + "...";
+    if (text && text?.length > maxLength) {
+      return text?.substr(0, maxLength) + "...";
     }
     return text;
   }

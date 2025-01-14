@@ -52,6 +52,24 @@
   width: 200px;
 }
 
+.explore-container .react-select-container {
+  margin-right: 10px;
+  width: 200px;
+}
+
+.explore-container .react-select-container .react-select__value-container::-webkit-scrollbar {
+  width: 0px;
+}
+
+.explore-container .react-select-container .react-select__value-container {
+  scrollbar-width: none;
+  padding: 3px 5px;
+}
+
+.explore-container .react-select__menu {
+  border-radius: 10px;
+}
+
 .explore-container .explore-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -172,9 +190,15 @@
   color: #fff;
 }
 
-.explore-container .resultNotFound {
+.explore-container .notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.explore-container .notFound {
   font-size: 24px;
-  margin: 0 auto;
   color: #fff;
 }
 

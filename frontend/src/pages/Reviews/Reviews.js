@@ -20,7 +20,7 @@ const Reviews = () => {
   useEffect(() => {
     const getReviews = async () => {
       const { response, err } = await reviewApi.getAllReviews();
-      if (err) console.log(err);
+      if (err) console.error(err);
       if (response) {
         setReviews([...response]);
       }
@@ -29,8 +29,8 @@ const Reviews = () => {
   }, []);
 
   function limitText(text, maxLength) {
-    if (text && text.length > maxLength) {
-      return text.substr(0, maxLength) + "...";
+    if (text && text?.length > maxLength) {
+      return text?.substr(0, maxLength) + "...";
     }
     return text;
   }
@@ -43,7 +43,7 @@ const Reviews = () => {
           <div key={review.id} className="review">
             <div className="review-media">
             <Link to={`/${review.mediaType}/${review.mediaId}`}>
-              <img src={apiConfig.originalImage(review.mediaPoster)} alt={review.mediaTitle} />
+              <img src={apiConfig.w500Image(review.mediaPoster)} alt={review.mediaTitle} />
             </Link>
             </div>
             <div className="review-info">
@@ -57,7 +57,7 @@ const Reviews = () => {
                   <p>{review.content}</p> :
                   <p>{limitText(review.content, 500)}</p>
                 }
-                {review.content.length > 500 && (
+                {review.content?.length > 500 && (
                   <span
                     onClick={() => toggleReviewExpand(review.id)}
                     className="view-more"

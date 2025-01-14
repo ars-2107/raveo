@@ -25,7 +25,22 @@ privateClient.interceptors.response.use((response) => {
   if (response && response.data) return response.data;
   return response;
 }, (err) => {
-  throw err.response.data;
-});
+    let errorMessage = "Something went wrong. Please try again later.";
+    
+    if (err.response) {
+      if (err.response.data && err.response.data.message) {
+        errorMessage = err.response.data.message;
+      }
+    } else if (err.request) {
+      errorMessage = "No response received from the server.";
+    } else {
+      errorMessage = "An error occurred while making the request.";
+    }
+
+    console.error("Error:", err);
+
+    throw new Error(errorMessage);
+  }
+);
 
 export default privateClient;

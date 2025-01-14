@@ -1,78 +1,110 @@
-.error {
+.error .error-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.error .error-background {
+  width: 80em;
+  height: 50em;
+  margin-left: -40.625em;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+}
+
+.error .error-background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 51.875em;
+  background: linear-gradient(to right, #1a1a1a 0%, rgba(255, 255, 255, 0) 20%),
+    linear-gradient(to left, #1a1a1a 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(to top, #1a1a1a 30%, rgba(255, 255, 255, 0) 80%),
+    linear-gradient(to bottom, #1a1a1a 0%, rgba(255, 255, 255, 0) 15%);
+}
+
+.error .error-content-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #1a1a1a;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100vh;
+  padding-bottom: 23%;
+  padding-right: 20%;
 }
 
-.error-body {
+.error .error-content {
+  position: relative;
   text-align: center;
-  background-color: #151515;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  width: 40%;
+  padding: 1.25em;
+  border-radius: 0.625em;
 }
 
-.error-title {
+.error .error-title {
   font-size: 6rem;
   color: #eed110;
   margin: 0;
 }
 
-.error-description {
+.error .error-description {
   font-size: 1.5rem;
   color: #fff;
-  margin-top: 10px;
+  margin-top: 0.625em;
 }
 
-.error-description a {
+.error .error-description a {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #3498db;
+  margin-top: 1.25em;
+  padding: 0.625em 1.25em;
+  background-color: #eed110;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 0.3125em;
   transition: background-color 0.5s ease;
 }
 
-.error-description a:hover {
+.error .error-description a:hover {
   background-color: #2980b9;
 }
 
-@media screen and (max-width: 768px) {
-  .error-body {
-    padding: 20px;
+@media screen and (max-width: 48em) {
+  .error .error-body {
+    padding: 1.25em;
   }
 
-  .error-title {
+  .error .error-title {
     font-size: 4rem;
   }
 
-  .error-description {
+  .error .error-description {
     font-size: 1.2rem;
   }
 
-  .error-description a {
-    padding: 8px 16px;
+  .error .error-description a {
+    padding: 0.5em 1em;
   }
 }
-@media screen and (max-width: 425px) {
-  .error-body {
+
+@media screen and (max-width: 475px) {
+  .error .error-body {
     width: 80%;
-    padding: 15px;
+    padding: 0.9375em;
   }
 
-  .error-title {
+  .error .error-title {
     font-size: 2rem;
   }
 
-  .error-description {
+  .error .error-description {
     font-size: 0.8rem;
   }
 
-  .error-description a {
-    padding: 6px 12px;
+  .error .error-description a {
+    padding: 0.375em 0.75em;
   }
 }

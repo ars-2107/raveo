@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './footer.css';
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="col-lg-4 col-md-4 footer-info">
               <div className="social-links mt-3">
                 <h4>Follow Us</h4>
-                <a href="https://twitter.com/ars2107_/" target="_blank" rel="noreferrer" className="twitter"><FontAwesomeIcon icon={faTwitter} className="social-icon" /></a>
+                <a href="https://twitter.com/ars2107_/" target="_blank" rel="noreferrer" className="twitter"><FontAwesomeIcon icon={faXTwitter} className="social-icon" /></a>
                 <a href="https://www.facebook.com/ars2107/" target="_blank" rel="noreferrer" className="facebook"><FontAwesomeIcon icon={faFacebook} className="social-icon" /></a>
                 <a href="https://www.instagram.com/ars2107_/" target="_blank" rel="noreferrer" className="instagram"><FontAwesomeIcon icon={faInstagram} className="social-icon" /></a>
                 <a href="https://www.linkedin.com/in/apoorvsharma2107/" target="_blank" rel="noreferrer" className="linkedin"><FontAwesomeIcon icon={faLinkedin} className="social-icon" /></a>
@@ -36,7 +36,7 @@ const Footer = () => {
 
       <div className="container">
         <div className="copyright">
-         Copyright: &copy; 2023 RAVEO. All rights reserved.
+         &copy; 2024 RAVEO. All rights reserved.
         </div>
       </div>
     </footer>

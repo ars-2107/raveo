@@ -61,7 +61,8 @@ const apiType = {
   },
 
   credits: (cate, id) => {
-    const url = category[cate] + "/" + id + "/credits";
+    const creditType = cate === "movie" ? "/credits" : "/aggregate_credits";
+    const url = category[cate] + "/" + id + creditType;
     return axiosClient.get(url, { params: {} });
   },
 
@@ -76,7 +77,7 @@ const apiType = {
   },
 
   personCredits: (id, params) => {
-    const url = "person/" + id +"/credits";
+    const url = "person/" + id +"/combined_credits";
     return axiosClient.get(url, params);
   },
   

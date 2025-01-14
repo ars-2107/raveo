@@ -1,11 +1,13 @@
 .castSection {
   position: relative;
-  padding: 100px;
+  margin: 100px 0;
+  padding: 0 100px;
 }
 
 @media (max-width: 768px) {
   .castSection {
-    padding: 30px;
+    margin: 30px 0;
+    padding: 0 30px;
   }
 }
 
@@ -28,6 +30,7 @@
   margin-right: -20px;
   margin-left: -20px;
   padding: 0 20px;
+  scrollbar-width: none;
 }
 
 @media (max-width: 768px) {

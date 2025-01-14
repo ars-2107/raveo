@@ -2,19 +2,19 @@
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
-  bottom: 15px;
+  right: 0.9375em;
+  bottom: 0.9375em;
   z-index: 999;
   background: #eed110;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 0.25em;
   transition: all 0.5s;
   border: none;
 }
 
 .back-to-top i {
-  font-size: 28px;
+  font-size: 1.75em;
   color: #0c0f0a;
   line-height: 0;
 }
@@ -31,3 +31,4 @@
   visibility: visible;
   opacity: 1;
 }
+

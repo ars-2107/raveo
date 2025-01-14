@@ -5,6 +5,8 @@ import apiConfig from "../../api/apiConfig";
 import apiType from "../../api/apiType";
 import Img from '../../images/image.png'
 
+import personDepartment from "../../data/person-department.json"
+
 import "./cast.css"
 
 const Cast = (props) => {
@@ -29,14 +31,19 @@ const Cast = (props) => {
                 : Img;
             return (
                 <div key={cast.id} className="listItem">
-                  <Link to={`/person/${cast.id}`} alt='movie-img'>
+                  <Link to={`/${personDepartment[cast.known_for_department] || cast.known_for_department?.toLowerCase() || "professional"}/${cast.id}`} alt='movie-img'>
                     <div className="profileImg">
                       <img src={imgUrl} alt={cast.name} />
                     </div>
                     <div className="name">{cast.name}</div>
-                    <div className="character">
-                        {cast.character}
-                    </div>
+                    {(cast?.character || (Array.isArray(cast?.roles) && cast.roles.length > 0)) && (
+                      <div className="character">
+                        {cast.character || cast.roles[0]?.character}
+                      </div>
+                    )}
+                    {cast.total_episode_count > 1 && <div className="character">
+                        {cast.total_episode_count} episodes
+                    </div>}
                   </Link>
                 </div>
               );

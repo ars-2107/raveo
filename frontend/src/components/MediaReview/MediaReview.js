@@ -38,7 +38,7 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
     });
 
     if (err) {
-      console.log(err);
+      console.error(err);
     } else if (response) {
       onUpdated(updatedReview);
       setExpanded(true);
@@ -52,13 +52,13 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
 
     const { response, err } = await reviewApi.remove({ reviewId: review.id });
 
-    if (err) console.log(err);
+    if (err) console.error(err);
     if (response) onRemoved(review.id);
   };
   
   function limitText(text, maxLength) {
-    if (text && text.length > maxLength) {
-        return text.substr(0, maxLength) + "...";
+    if (text && text?.length > maxLength) {
+        return text?.substr(0, maxLength) + "...";
       }
       return text;
     }
@@ -127,7 +127,7 @@ const ReviewItem = ({ review,  onUpdated, onRemoved }) => {
         <h4 className="title">{review.title}</h4>
         <p className="content">
         {expanded ? review.content : limitText(review.content, 500)}
-          {review.content.length > 500 && (
+          {review.content?.length > 500 && (
             <span
               onClick={toggleExpand}
               className="view-more"
@@ -180,7 +180,7 @@ const MediaReview = ({ reviews, media, mediaType }) => {
   useEffect(() => {
     setListReviews([...reviews]);
     setFilteredReviews([...reviews].splice(0, skip));
-    setReviewCount(reviews.length);
+    setReviewCount(reviews?.length);
   }, [reviews]);
 
   const onAddReview = async () => {
@@ -204,7 +204,7 @@ const MediaReview = ({ reviews, media, mediaType }) => {
     setOnRequest(false);
     setLoading(false);
 
-    if (err) console.log(err);
+    if (err) console.error(err);
     if (response) {
       setFilteredReviews([...filteredReviews, response]);
       setReviewCount(reviewCount + 1);
@@ -252,7 +252,7 @@ const MediaReview = ({ reviews, media, mediaType }) => {
       <div className="media-review-container">
       <h4 className="media-review-heading">Reviews - {reviewCount}</h4>
       <div className="media-review-content">
-        {filteredReviews.length === 0 ? (
+        {filteredReviews?.length === 0 ? (
           <p>No review yet.</p>
         ) : (
           filteredReviews.map((item) => (
@@ -267,7 +267,7 @@ const MediaReview = ({ reviews, media, mediaType }) => {
             ) : null
           ))
         )}
-        {filteredReviews.length < listReviews.length && (
+        {filteredReviews?.length < listReviews?.length && (
           <button
             onClick={onLoadMore}
             className="media-review-loading"
@@ -320,9 +320,9 @@ const MediaReview = ({ reviews, media, mediaType }) => {
                 value={content}
                 onChange={(e) => {
                   const input = e.target.value;
-                  if (input.length <= characterLimit) {
+                  if (input?.length <= characterLimit) {
                     setContent(input);
-                    setCharCount(input.length);
+                    setCharCount(input?.length);
                   }
                 }}
                 rows={8}

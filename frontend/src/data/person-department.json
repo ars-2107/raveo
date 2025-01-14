@@ -1,0 +1,14 @@
+{
+  "Directing": "director",
+  "Camera": "cinematographer",
+  "Costume & Make-Up": "costume-makeup",
+  "Acting": "actor",
+  "Art": "artist",
+  "Writing": "writer",
+  "Production": "producer",
+  "Visual Effects": "visual-effects",
+  "Lighting": "lighting",
+  "Editing": "editor",
+  "Sound": "sound",
+  "Crew": "crew"
+}

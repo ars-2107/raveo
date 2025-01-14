@@ -81,7 +81,7 @@ function MediaRating({ media, mediaType }) {
     const getRating = async () => {
       try {
         const response = await ratingApi.getRating({ mediaId: mediaId.toString() });
-        if (response && response.response.length > 0) {
+        if (response && response.response?.length > 0) {
           if (response.response[0].rating !== undefined) {
             setUserRating(response.response[0].rating);
           } else {

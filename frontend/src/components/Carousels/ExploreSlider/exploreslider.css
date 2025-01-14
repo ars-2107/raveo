@@ -1,57 +1,59 @@
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-.content-container {
+.explore-movies .content-container {
   margin: 4rem auto;
 }
 
-.content-header {
+.explore-movies .content-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 30px 30px 30px 30px;
+  margin: 1.875em 1.875em 1.875em 1.875em;
 }
 
-.content-header h2 span {
+.explore-movies .content-header h2 span {
   display: inline-flex;
-  width: 5px;
-  height: 30px;
+  width: 0.3125em;
+  height: 1.575em;
   background-color: #eed110;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: 0.625em;
 }
 
-.content-header h2 {
+.explore-movies .content-header h2 {
   color: #fff;
-  font-size: 25px;
+  font-size: 1.5625em;
   font-weight: 500;
 }
 
-.view-all {
-  padding: 5px 15px;
-  margin-bottom: 5px;
+.explore-movies .view-all {
+  padding: 0.3125em 0.9375em;
+  margin-bottom: 0.3125em;
   cursor: pointer;
   color: #fff;
-  font-size: 15px;
+  background-color: #232323;
+  border-radius: 0.25em;
+  font-size: 0.9375em;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.content-container .view-all:hover {
+.explore-movies .content-container .view-all:hover {
   color: #eed110;
   background-color: #151515;
 }
 
 @media (max-width: 768px) {
-  .content-header h2 {
-    font-size: 20px;
+  .explore-movies .content-header h2 {
+    font-size: 1.25em;
   }
 
-  .content-container .view-all {
-    padding: 3px 10px;
-    font-size: 12px; 
-    margin-bottom: 10px;
+  .explore-movies .content-container .view-all {
+    padding: 0.1875em 0.625em;
+    font-size: 0.75em;
+    margin-bottom: 0.625em;
   }
 }
 
@@ -59,40 +61,147 @@
 # Slider
 --------------------------------------------------------------*/
 
-.slider {
+.explore-movies .slider {
+  display: flex;
+  position: relative;
+  justify-content: center;
   text-align: center;
-  transition: all 0.5s;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.slider .image {
+.explore-movies .slider .image {
   position: relative;
   cursor: pointer;
   width: 70%;
   margin: 0 auto;
   transition: filter 0.3s ease;
+  border-radius: 0.5em;
 }
 
-.slider:hover .image {
-  filter: brightness(70%);
+.explore-movies .slider:hover .image {
+  filter: brightness(60%);
 }
 
-.slider .title {
-  font-size: 1.35em;
-  margin: 0.5rem 0;
+.explore-movies .slider .hover-icons {
+  display: none;
+  position: absolute;
+  top: 15%;
+  right: 12%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+
+.explore-movies .slider .hover-icons:first-child {
+  padding-top: 0.4rem;
+}
+
+.explore-movies .slider .hover-icons:last-child {
+  padding-bottom: 0.4rem;
+}
+
+.explore-movies .slider:hover .hover-icons {
+  display: flex;
+}
+
+.explore-movies .slider .hover-icons .icon-button:first-child {
+  padding-top: 0.6rem;
+}
+
+.explore-movies .slider .hover-icons .icon-button:last-child {
+  padding-bottom: 0.6rem;
+}
+
+.explore-movies .slider .icon-button {
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.explore-movies .slider .heart-icon:hover {
+  color: #D32F2F;
+}
+
+.explore-movies .slider .view-icon:hover {
+  color: #388E3C;
+}
+
+.explore-movies .slider .bookmark-icon:hover {
+  color: #0288D1;
+}
+
+.explore-movies .slider .rating,
+.explore-movies .slider .favourites {
+  font-size: 1rem;
+  color: #fff;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.explore-movies .slider .rave-rant {
+  font-size: 1rem;
+  color: #fff;
+  display: inline-block;
+  margin-top: 0.257rem;
+}
+
+.explore-movies .slider .stats {
+  display: flex;
+  margin: 0.5em 17%;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.explore-movies .slider .rating {
   color: #fff;
 }
 
-.slider:hover .title {
+.explore-movies .slider .favourites {
+  color: #fff;
+}
+
+.explore-movies .slider .favourites {
+  color: #fff;
+}
+
+.explore-movies .slider .title {
+  font-size: 1.125em;
+  margin-top: 0.5em;
+  color: #fff;
+}
+
+.explore-movies .slider:hover .title {
   color: #eed110;
   cursor: pointer;
 }
 
-.slider .rating {
+.explore-movies .slider .release-year {
   font-size: 1rem;
+  margin-top: 0.5rem;
   color: #fff;
 }
 
-.slider:hover .rating {
+.explore-movies .slider:hover .rating {
+  color: #eed110;
+  cursor: pointer;
+}
+
+.explore-movies .slider:hover .rave-rant {
+  color: #eed110;
+  cursor: pointer;
+}
+
+.explore-movies .slider:hover .favourites {
+  color: #eed110;
+  cursor: pointer;
+}
+
+.explore-movies .slider:hover .release-year {
   color: #eed110;
   cursor: pointer;
 }

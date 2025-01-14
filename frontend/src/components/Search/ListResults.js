@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import apiConfig from "../../api/apiConfig";
-import Img from "../../images/image.png"
+import Img from "../../images/image.png";
+import personDepartment from "../../data/person-department.json"
 import "./listresults.css";
 
 const ResultItem = ({ item }) => {
@@ -24,11 +25,12 @@ const ResultItem = ({ item }) => {
     : "-";
 
   return (
-    <Link to={`/${item.media_type}/${item.id}`} className="result-item">
+    <Link to={`/${item.media_type === "person" ? personDepartment[item.known_for_department] || item.known_for_department?.toLowerCase() || "professional" : item.media_type}/${item.id}`} className="result-item">
       <div className="result-item-img">
         <img
           src={imgUrl}
           alt={item.title || item.name}
+          
         />
       </div>
       <div className="result-info">
@@ -41,6 +43,12 @@ const ResultItem = ({ item }) => {
 };
 
 const ListResults = ({ results, keyWord }) => {
+  const navigate = useNavigate();
+
+  const handleAllResultsClick = () => {
+    navigate(`/results?q=${keyWord}`);
+  };
+
   return (
     <div className="list-results">
         <>
@@ -48,23 +56,14 @@ const ListResults = ({ results, keyWord }) => {
             <ResultItem key={result.id} item={result} />
           ))}
 
-          <Link
-            className="all-results-link"
-            to={`/results?q=${keyWord}`}
-            style={{
-              width: "80%",
-              backgroundColor: "#111",
-              color: "#fff",
-              padding: "10px 16px",
-              border: "none",
-              borderRadius: "10px",
-              fontSize: "16px",
-              display: "block",
-              textAlign: "center",
-            }}
-          >
-            All results
-          </Link>
+          <div className="all-results-button-container">
+            <button
+              className="all-results-button"
+              onClick={handleAllResultsClick}
+            >
+              All results
+            </button>
+          </div>
         </>
     </div>
   );
